@@ -1,0 +1,34 @@
+# Team Capacity Planner Dependencies
+
+# Web Framework
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+
+# HTTP Client
+httpx>=0.24.0
+
+# Configuration
+pyyaml>=6.0
+
+# Data Validation
+pydantic>=2.0
+
+# Date/Time handling
+python-dateutil>=2.8.0
+
+# Charting (optional - for server-side chart generation)
+# matplotlib>=3.7.0
+# plotly>=5.15.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Development
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.4.0
+
+# Production
+gunicorn>=21.0.0

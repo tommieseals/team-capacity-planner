@@ -1,0 +1,112 @@
+# Team Capacity Planner Configuration
+# Copy this to config.yaml and fill in your values
+
+# GitHub Integration
+github:
+  # Personal access token with repo and org:read scopes
+  token: ${GITHUB_TOKEN}
+  # Your GitHub organization
+  org: your-org
+  # Repositories to track
+  repos:
+    - frontend
+    - backend
+    - infrastructure
+
+# Jira Integration
+jira:
+  # Jira Cloud URL
+  url: https://yourcompany.atlassian.net
+  # Email associated with API token
+  email: ${JIRA_EMAIL}
+  # API token (create at id.atlassian.com/manage-profile/security/api-tokens)
+  token: ${JIRA_TOKEN}
+  # Default project key
+  project: PROJ
+  # Custom field ID for story points (find in Jira settings)
+  story_points_field: customfield_10016
+
+# Calendar Integration
+calendar:
+  # Provider: google or outlook
+  provider: google
+  # For Google: Path to OAuth credentials JSON
+  credentials_file: credentials.json
+  # For Outlook: OAuth token
+  # outlook_token: ${OUTLOOK_TOKEN}
+
+# Slack Integration
+slack:
+  # Incoming webhook URL
+  webhook_url: ${SLACK_WEBHOOK}
+  # Default channel for alerts
+  channel: "#engineering-capacity"
+  # Enable/disable different alerts
+  alerts:
+    overload: true
+    sprint_risk: true
+    pto_conflict: true
+
+# Team Configuration
+team:
+  # Team member names (should match GitHub/Jira usernames)
+  members:
+    - alice
+    - bob
+    - carol
+    - dave
+    - eve
+  # Optional: Map different usernames across systems
+  # username_map:
+  #   alice:
+  #     github: alice-dev
+  #     jira: Alice Smith
+  #     calendar: alice@company.com
+
+# Workload Thresholds
+thresholds:
+  # Percentage above which someone is considered overloaded
+  overload: 100
+  # Sprint completion below this = at risk
+  at_risk: 80
+  # Maximum acceptable workload variance (standard deviation)
+  balance_variance: 30
+
+# Workload Weights (customize scoring)
+weights:
+  # GitHub factors
+  github_open_prs: 3.0
+  github_pending_reviews: 2.0
+  github_assigned_issues: 2.0
+  github_recent_commits: 0.5
+  
+  # Jira factors
+  jira_story_points: 1.0
+  jira_in_progress: 2.0
+  jira_blocked: 3.0
+  
+  # Calendar factors
+  meeting_hours: 0.5
+  
+  # Normalization (what's considered 100% in each category)
+  max_open_prs: 5
+  max_pending_reviews: 8
+  max_assigned_issues: 10
+  max_story_points: 13
+  max_meeting_hours: 20
+
+# API Settings
+api:
+  host: 0.0.0.0
+  port: 8000
+  # CORS origins (for frontend)
+  cors_origins:
+    - http://localhost:3000
+    - https://your-dashboard.company.com
+
+# Caching
+cache:
+  # How long to cache workload data (seconds)
+  ttl: 300
+  # Enable Redis caching (for production)
+  redis_url: null

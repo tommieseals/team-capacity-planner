@@ -1,0 +1,67 @@
+# Team Capacity Planner - Docker Compose
+version: '3.8'
+
+services:
+  # Backend API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: capacity-api
+    ports:
+      - "8000:8000"
+    environment:
+      # GitHub Integration
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GITHUB_ORG=${GITHUB_ORG}
+      
+      # Jira Integration
+      - JIRA_URL=${JIRA_URL}
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_TOKEN=${JIRA_TOKEN}
+      - JIRA_PROJECT=${JIRA_PROJECT}
+      
+      # Slack Integration
+      - SLACK_WEBHOOK=${SLACK_WEBHOOK}
+      
+      # Calendar Integration
+      - GOOGLE_CALENDAR_TOKEN=${GOOGLE_CALENDAR_TOKEN}
+    volumes:
+      - ./config:/app/config:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Dashboard (optional)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: capacity-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # Redis Cache (optional - for production)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: capacity-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+
+# volumes:
+#   redis-data:
+
+networks:
+  default:
+    name: capacity-network

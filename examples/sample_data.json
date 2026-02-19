@@ -1,0 +1,246 @@
+{
+  "team_workload": {
+    "calculated_at": "2024-01-15T10:30:00",
+    "summary": {
+      "team_size": 5,
+      "overloaded": 2,
+      "at_capacity": 1,
+      "healthy": 2,
+      "average_workload": 87.4,
+      "variance": 25.3,
+      "is_balanced": true
+    },
+    "members": [
+      {
+        "name": "Alice Chen",
+        "email": "alice@company.com",
+        "github": {
+          "open_prs": 4,
+          "pending_reviews": 7,
+          "assigned_issues": 5,
+          "recent_commits": 18
+        },
+        "jira": {
+          "story_points": 8,
+          "in_progress": 3,
+          "blocked": 0
+        },
+        "calendar": {
+          "meeting_hours": 12,
+          "pto_days_upcoming": 0,
+          "next_pto": null
+        },
+        "workload": {
+          "score": 45.5,
+          "percentage": 118,
+          "status": "overloaded",
+          "emoji": "🔴"
+        }
+      },
+      {
+        "name": "Bob Martinez",
+        "email": "bob@company.com",
+        "github": {
+          "open_prs": 3,
+          "pending_reviews": 6,
+          "assigned_issues": 4,
+          "recent_commits": 12
+        },
+        "jira": {
+          "story_points": 5,
+          "in_progress": 2,
+          "blocked": 1
+        },
+        "calendar": {
+          "meeting_hours": 8,
+          "pto_days_upcoming": 3,
+          "next_pto": "2024-01-22"
+        },
+        "workload": {
+          "score": 40.0,
+          "percentage": 104,
+          "status": "overloaded",
+          "emoji": "🔴"
+        }
+      },
+      {
+        "name": "Carol Williams",
+        "email": "carol@company.com",
+        "github": {
+          "open_prs": 2,
+          "pending_reviews": 4,
+          "assigned_issues": 3,
+          "recent_commits": 8
+        },
+        "jira": {
+          "story_points": 5,
+          "in_progress": 2,
+          "blocked": 0
+        },
+        "calendar": {
+          "meeting_hours": 15,
+          "pto_days_upcoming": 0,
+          "next_pto": null
+        },
+        "workload": {
+          "score": 33.5,
+          "percentage": 87,
+          "status": "at_capacity",
+          "emoji": "🟡"
+        }
+      },
+      {
+        "name": "Dave Johnson",
+        "email": "dave@company.com",
+        "github": {
+          "open_prs": 1,
+          "pending_reviews": 3,
+          "assigned_issues": 2,
+          "recent_commits": 6
+        },
+        "jira": {
+          "story_points": 3,
+          "in_progress": 1,
+          "blocked": 0
+        },
+        "calendar": {
+          "meeting_hours": 10,
+          "pto_days_upcoming": 0,
+          "next_pto": null
+        },
+        "workload": {
+          "score": 23.0,
+          "percentage": 60,
+          "status": "healthy",
+          "emoji": "🟢"
+        }
+      },
+      {
+        "name": "Eve Thompson",
+        "email": "eve@company.com",
+        "github": {
+          "open_prs": 2,
+          "pending_reviews": 2,
+          "assigned_issues": 2,
+          "recent_commits": 4
+        },
+        "jira": {
+          "story_points": 3,
+          "in_progress": 1,
+          "blocked": 0
+        },
+        "calendar": {
+          "meeting_hours": 6,
+          "pto_days_upcoming": 5,
+          "next_pto": "2024-01-18"
+        },
+        "workload": {
+          "score": 24.0,
+          "percentage": 62,
+          "status": "healthy",
+          "emoji": "🟢"
+        }
+      }
+    ]
+  },
+  "sprint_prediction": {
+    "sprint": {
+      "name": "Sprint 23",
+      "id": 123,
+      "days_remaining": 4,
+      "days_elapsed": 6
+    },
+    "points": {
+      "total": 34,
+      "completed": 21,
+      "in_progress": 8,
+      "remaining": 13
+    },
+    "prediction": {
+      "completion_probability": 78,
+      "predicted_completion": 29,
+      "predicted_remaining": 5,
+      "on_track": true
+    },
+    "risk": {
+      "level": "medium",
+      "at_risk_tickets": [
+        {
+          "key": "PROJ-456",
+          "title": "Implement user authentication flow",
+          "story_points": 5,
+          "status": "To Do",
+          "risk_score": 65,
+          "risk_level": "high",
+          "risk_factors": [
+            "Not started, sprint >50% complete",
+            "Large ticket (5 points) with 4 days left"
+          ],
+          "recommendation": "Consider descoping to next sprint"
+        },
+        {
+          "key": "PROJ-789",
+          "title": "Fix database connection pooling",
+          "story_points": 3,
+          "status": "In Progress",
+          "risk_score": 50,
+          "risk_level": "medium",
+          "risk_factors": [
+            "Blocked"
+          ],
+          "recommendation": "Unblock immediately or move to next sprint"
+        }
+      ]
+    },
+    "recommendations": [
+      "Review 2 at-risk tickets for descoping",
+      "Unblock 1 blocked tickets immediately"
+    ]
+  },
+  "pto_conflicts": [
+    {
+      "date": "2024-01-22",
+      "people_out": ["Bob Martinez", "Eve Thompson"],
+      "available_count": 3,
+      "severity": "warning"
+    },
+    {
+      "date": "2024-01-23",
+      "people_out": ["Bob Martinez", "Eve Thompson"],
+      "available_count": 3,
+      "severity": "warning"
+    }
+  ],
+  "velocity_history": [
+    {
+      "sprint_name": "Sprint 18",
+      "completed_points": 28,
+      "committed_points": 32,
+      "completion_rate": 87.5
+    },
+    {
+      "sprint_name": "Sprint 19",
+      "completed_points": 31,
+      "committed_points": 35,
+      "completion_rate": 88.6
+    },
+    {
+      "sprint_name": "Sprint 20",
+      "completed_points": 26,
+      "committed_points": 30,
+      "completion_rate": 86.7
+    },
+    {
+      "sprint_name": "Sprint 21",
+      "completed_points": 33,
+      "committed_points": 34,
+      "completion_rate": 97.1
+    },
+    {
+      "sprint_name": "Sprint 22",
+      "completed_points": 29,
+      "committed_points": 32,
+      "completion_rate": 90.6
+    }
+  ]
+}
